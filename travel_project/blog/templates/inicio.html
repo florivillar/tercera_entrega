@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+    <h1>Bienvenido a TRAVEL BLOG</h1>
+    <p>Comparte tus aventuras.</p>
+    
+    <!-- Otro contenido que desees agregar -->
+    
+    <a href="{% url 'crear_post' %}">Crear una publicación</a></p>
+    <a href="{% url 'crear_destino' %}">Crear un destino</a></p>
+    <a href="{% url 'crear_comunidad' %}">Crear un usuario en la comunidad</a></p>
+    <a href="{% url 'search_results' %}">Formulario de busqueda</a>
+{% endblock contenido %}
