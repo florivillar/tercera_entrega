@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    <title>Nuestra comunidad - Travel Blog</title>
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Lista de comunidades</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+
+    <ul>
+        {% for comunidad in comunidades %}
+            <li>
+                {{ comunidad.nombre }}
+                {{ comunidad.descripcion }}
+                {{ comunidad.imagen }}
+
+                <ul>
+                    {% for miembro in comunidad.miembros.all %}
+                        <li>{{ miembro.nombre }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% empty %}
+            <li>No hay comunidades disponibles.</li>
+        {% endfor %}
+    </ul>
+{% endblock contenido %}

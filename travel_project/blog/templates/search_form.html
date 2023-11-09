@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<form method="post" enctype="multipart/form-data" action="{% url 'crear_destino' %}">
+  
+    {% block titulo %}
+    CREAR DESTINO
+    {% endblock titulo %}
+
+    <p>Nombre</p>
+    <input type="text" name="nombre">
+    <p>Descripción</p>
+    <input type="text" name="descripcion">
+    <p>Imagen</p>
+    <input type="file" name="imagen">
+
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <input class="btn btn-success" type="submit" value="Enviar destino" />
+    <br>
+    <a href="{% url 'lista_destinos' %}">Volver a la lista</a>
+
+</form>
+{% endblock contenido %}
